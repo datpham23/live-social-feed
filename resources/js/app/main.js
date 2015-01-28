@@ -4,7 +4,6 @@ require('expose?bootstrap!bootstrap');
 require('bootstrap/dist/css/bootstrap.min.css');
 require('../../css/font-awesome.min.css');
 require('../../css/base-stack.css');
-require('../../css/animate.css');
 require('../../css/studio.css');
 
 var currentPage;

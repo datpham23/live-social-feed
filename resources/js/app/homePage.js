@@ -7,6 +7,9 @@ var SpecialistGrid = require('../components/SpecialistGrid')
 require("expose?jquery-waypoints!jquery-waypoints/waypoints");
 
 
+require('../../css/homePage.scss');
+
+
 var carouselItems = [
 {
   videoSrc : "resources/videos/01.mp4",
@@ -117,7 +120,7 @@ var HomeComponent = React.createClass({
   },
   render:function(){
     return (
-      <div>
+      <div className="home-page">
         <Navbar/>
         <div id="myCarousel" className="carousel slide" data-ride="carousel">
           <ol className="carousel-indicators">
