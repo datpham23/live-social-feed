@@ -1,0 +1,49 @@
+body.blue-blackgound{
+  background: rgba(116, 116, 116, 0.53);
+}
+
+.specialist-page{
+  color: white;
+}
+
+.specialist-profile{
+  .main-profile{
+    border: 3px solid white;
+  }
+
+  .specialist-banner{
+    margin-top: 120px;
+  }
+
+  .specialist-name{
+    margin-top: 15px;
+    font-size: 30px;
+  }
+
+  .specialist-description{
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 70%;
+  }
+
+  .specialist-meta{
+    padding-top: 55px;
+    clear: both;
+
+    .meta-description{
+      font-size: 16px;
+      line-height: 0%;
+    }
+
+    .meta-value{
+      font-size: 45px;
+      font-weight: 100;
+      line-height: 1;
+    }
+
+    .border{
+      border-left: 1px solid rgb(255, 255, 255);
+      border-right: 1px solid rgb(255, 255, 255);
+    }
+  }
+}

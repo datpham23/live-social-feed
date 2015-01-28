@@ -9,7 +9,7 @@ var SpecialistCard = React.createClass({
       liked : !this.state.liked
     })
   },
-  onInfoClick:function (){
+  onInfoClick:function(){
   },
   onImageClick:function(){
   },
@@ -29,10 +29,10 @@ var SpecialistCard = React.createClass({
             <div className="info-container" onClick={this.onInfoClick}>
               <img className="img-circle pull-left specialist-img" src={this.props.card.agentImg}/>
               <div className="name">{this.props.card.agentName}</div>
-              <div className="description text-muted">{this.props.card.agentDescription}</div>  
+              <div className="description text-muted">{this.props.card.agentDescription}</div>
+              <div className="gradient-overlay"></div>  
             </div>
           </a>  
-          <div className="gradient-overlay"></div>
           <div className="video-description">
             <div className="category text-white">{this.props.card.videoTitle}</div> 
             <div className="description text-white">{this.props.card.videoDescription}</div> 

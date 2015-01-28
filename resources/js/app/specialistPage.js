@@ -5,7 +5,7 @@ var Navbar = require('../components/Navbar');
 var Page = require('../core/PageClass');
 
 
-require('../../css/specialistPage.css');
+require('../../css/specialistPage.scss');
 
 
 var SpecialistProfile = React.createClass({

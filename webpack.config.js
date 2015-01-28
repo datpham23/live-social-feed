@@ -16,6 +16,14 @@ module.exports = {
     loaders: [
       { test: /\.js$/, loader: 'jsx-loader' },
       { test: /\.css/, loader: "style-loader!raw-loader" },
+      {
+        test: /\.scss$/,
+        loader: "style!css!sass?outputStyle=expanded&" +
+          "includePaths[]=" +
+            (path.resolve(__dirname, "./bower_components")) + "&" +
+          "includePaths[]=" +
+            (path.resolve(__dirname, "./node_modules"))
+      }
     ]
   },
   resolve: {
