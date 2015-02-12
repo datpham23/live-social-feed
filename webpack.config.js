@@ -5,12 +5,12 @@ module.exports = {
   cache : true,
   watch: false,
   entry : {
-    'main' : path.join(__dirname, 'resources/js/app/main.js')
+    'main' : path.join(__dirname, 'public/js/app/main.js')
   },
   output: {
     // path : 'build/js/',
-    filename: 'build/js/app/[name].js',
-    chunkFilename: 'build/js/chunks/[id].chunk.js'
+    filename: 'public/build/js/app/[name].js',
+    chunkFilename: 'public/build/js/chunks/[id].chunk.js'
   },
   module: {
     loaders: [

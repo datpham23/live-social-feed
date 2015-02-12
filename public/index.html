@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Studio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="//cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+  </head>
+  <body>
+    page loaded
+  </body>
+  
+  <script>
+    var sock = new SockJS('http://localhost:8080/v1/socket/hello');
+     sock.onopen = function() {
+         console.log('open');
+         sock.send('test');
+     };
+     sock.onmessage = function(e) {
+         console.log('message', e.data);
+     };
+     sock.onclose = function() {
+         console.log('close');
+     };
+  </script>
+  <script type="text/javascript" src="build/js/app/main.js"></script>
+</html>
