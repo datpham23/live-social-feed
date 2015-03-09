@@ -1,5 +1,17 @@
-var path = require('path')
+var path = require('path');
 var webpack = require("webpack");
+var glob = require("glob")
+
+// var jsSrcPath = 'public/js/app/**';
+
+// var files = glob.sync(jsSrcPath, {})
+// var entries = {};
+
+
+// for (var i = 0; i < files.length; i++) {
+//   var file = files[i];
+//   entries[file.replace(/^.*[\\\/]/, '').replace(/\.[^/.]+$/, "")] = path.join(__dirname, file);
+// }
 
 module.exports = {
   cache : true,
@@ -8,9 +20,9 @@ module.exports = {
     'main' : path.join(__dirname, 'public/js/app/main.js')
   },
   output: {
-    // path : 'build/js/',
-    filename: 'public/build/js/app/[name].js',
-    chunkFilename: 'public/build/js/chunks/[id].chunk.js'
+    path : path.join(__dirname, 'public/'),
+    filename: 'build/js/app/[name].js',
+    chunkFilename: 'build/js/chunks/[id].chunk.js'
   },
   module: {
     loaders: [
@@ -33,11 +45,6 @@ module.exports = {
   plugins: [
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    ),
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-      "windows.jQuery": "jquery"
-    })
+    )
   ]
 };

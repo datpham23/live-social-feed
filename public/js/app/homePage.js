@@ -6,8 +6,8 @@ var Page = require('../core/PageClass');
 var HomeComponent = React.createClass({
   render:function(){
     return (
-      <div>
-        hello world
+      <div className="feed-page">
+        
       </div> 
     );
   }

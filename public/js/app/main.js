@@ -1,7 +1,7 @@
 var Director = require('director');
 
-require('expose?bootstrap!bootstrap');
-require('bootstrap/dist/css/bootstrap.min.css');
+require('../../css/site.min.css');
+require('../../css/global.scss');
 
 var currentPage;
 
@@ -10,12 +10,6 @@ var routes = {
     console.log("Routing To Root /")
     require.ensure([], function(){
       currentPage = require('./homePage').render();
-    });
-  },
-  '/specialist/profile/:id' : function(id){
-    console.log("Routing To Root /specialist/profile/"+id)
-    require.ensure([], function(){
-      currentPage = require('./specialistPage').render();
     });
   }
 };
@@ -28,7 +22,6 @@ window.router = Director.Router(routes).configure({
     if(currentPage != null){
       currentPage.tearDown();
     }
-      
   }
 });
 
