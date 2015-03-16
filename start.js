@@ -1,11 +1,9 @@
-var Server = require('./lib/Server.js')
+var Server = require('./lib/server.js') 
 var path = require('path');
 var fs = require('fs');
 
 
-
-var configString = fs.readFileSync(path.resolve(__dirname, 'config.json'));
-var configs = JSON.parse(configString);
+var configs = require('./lib/configReader.js')();
 
 console.log("=============== Loading Configs ===================");
 console.log(configs);

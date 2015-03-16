@@ -22,6 +22,7 @@
     "gulp-minify-css": "^0.4.2",
     "gulp-uglify": "^1.1.0",
     "gulp-webpack": "^1.1.2",
+    "instagram-node-lib": "^0.1.1",
     "json": "^9.0.3",
     "jsx-loader": "^0.12.2",
     "multipipe": "^0.1.2",
