@@ -1,6 +1,6 @@
 # live-social-feed
 
-Steps to run:
+### Steps to run:
 1. nmp install
 2. configure app via configs.jsson
   a. Get instagram api key
