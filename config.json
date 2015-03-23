@@ -2,7 +2,7 @@
   "port" : 8080,
   "ipAddress" : "98.207.253.64",
   "instagram" : { 
-    "tags" : ["bae"],
+    "tags" : ["bae","abc"],
     "client_id": "83cc9053ca774d0891335457c52b615b",
     "client_secret": "9d85bac19a044c278733fdc2a9215774" 
   }
