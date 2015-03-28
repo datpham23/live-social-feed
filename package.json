@@ -19,6 +19,7 @@
     "express": "^4.11.1",
     "externalip": "^1.0.0",
     "fibers": "^1.0.5",
+    "flux": "^2.0.1",
     "glob": "^4.3.5",
     "gulp": "^3.8.10",
     "gulp-concat-css": "^1.1.1",
@@ -26,6 +27,7 @@
     "gulp-uglify": "^1.1.0",
     "gulp-webpack": "^1.1.2",
     "imagesloaded": "^3.1.8",
+    "instagram-node": "^0.5.6",
     "instagram-node-lib": "^0.1.1",
     "jquery-bridget": "^1.1.0",
     "json": "^9.0.3",
@@ -43,7 +45,8 @@
     "style-loader": "^0.8.3",
     "urlencode": "^0.2.0",
     "vinyl-named": "^1.1.0",
-    "webpack": "^1.5.3"
+    "webpack": "^1.5.3",
+    "winston": "^0.9.0"
   },
   "author": "",
   "license": "ISC"

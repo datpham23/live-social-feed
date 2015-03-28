@@ -80,81 +80,80 @@ h1,h2,h3,h4,h5,h6{
   }
 }
 
-.cell .media-item{
-  border: 1px solid silver;
+.cell{
+  .media-item {
   padding: 5px;
-  border-radius: 5px;
-  box-shadow: 0 1px 16px rgba(0,0,0,.1);
+  box-shadow: 0 1px 16px rgba(0, 0, 0, .1);
   background: white;
   position: relative;
+
+
+    .info{
+      padding: 7px 10px;
+      width: 100%;
+      color: #3C4152;
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      box-sizing: border-box;
+      position: relative;
+
+
+      img.profile{
+        width: 50px;
+        height: 50px;
+        border-radius: 150px;
+        float: left;
+        margin-right: 15px;
+        border: 1px solid rgb(203, 203, 203);
+      }
+
+      .text{
+        word-wrap: break-word;
+
+
+        .user-name{
+          margin-bottom: 10px;
+          color: #4A6179;
+        }
+
+        .message{
+          color: rgb(37, 37, 37);
+          font-weight: 100;
+          min-height: 22px;
+        }
+      }
+    }
+
+    img, video{
+      width: 100%;
+      display: block;
+    }
+
+
+    .instagram-icon{
+      background: url('/img/instagram.png');
+      position: absolute;
+      background-size: 64%;
+      background-repeat: no-repeat;
+      right: 10px;
+      top: 10px;
+      padding: 15px;
+      background-color: rgb(220, 223, 237);
+      border-radius: 180px;
+      background-position: center;
+      border: 3px solid rgb(255, 255, 255);
+    }
+  }
 }
 
-.cell .media-item .info{
-  padding: 7px 10px;
-  width: 100%;
-  color: #3C4152;
-  text-transform: uppercase;
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  box-sizing: border-box;
-  position: relative;
-}
-
-.cell .media-item .info img.profile{
-  width: 50px;
-  height: 50px;
-  border-radius: 150px;
-  float: left;
-  margin-right: 15px;
-  border: 1px solid rgb(203, 203, 203);
-}
-
-.cell .media-item .info .text{
-  word-wrap: break-word;
-}
-
-.cell .media-item .info .text .user-name{
-  margin-bottom: 10px;
-  color: #4A6179;
-}
-
-.cell .media-item .info .text .message{
-  color: rgb(37, 37, 37);
-  font-weight: 100;
-  min-height: 22px;
-}
-
-.cell .media-item img,.cell .media-item video{
-  width: 100%;
-  display: block;
-}
-
-.cell .media-item .instagram-icon{
-  background: url('/img/instagram.png');
-  position: absolute;
-  background-size: 64%;
-  background-repeat: no-repeat;
-  right: 10px;
-  top: 10px;
-  padding: 15px;
-  background-color: rgb(220, 223, 237);
-  border-radius: 180px;
-  background-position: center;
-  border: 3px solid rgb(255, 255, 255);
-}
 
 
 
 
-
-
-
-
-
-
-.configruation-page{
+.configuration-page{
   display: flex;
   justify-content : center;
   align-items : center;

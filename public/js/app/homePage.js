@@ -8,6 +8,8 @@ var Isotope = require('isotope-layout');
 $.bridget( 'isotope', Isotope );
 var imagesLoaded = require('imagesLoaded');
 
+var api = require("../api/api");
+
 
 
 var instagramUrl = 'https://api.instagram.com/v1/tags/{tagId}/media/recent?client_id={client_id}';
@@ -49,7 +51,7 @@ var HomeComponent = React.createClass({
   componentDidMount: function() {
     var _this = this;
     this.socket = io.connect(window.location.origin);
-    this.socket.on('newInstagram', function (response) {
+    this.socket.on('newInstagramPosts', function (response) {
       $.each(response.newBundles, function(index, bundle) {
         var url = instagramUrl.replace(/{tagId}/,bundle.object_id).replace(/{client_id}/,response.client_id);
 
@@ -88,7 +90,7 @@ var HomeComponent = React.createClass({
           _this.setState({
             posts : newState
           })
-          _this.socket.disconnect();
+          //_this.socket.disconnect();
         })
       });
     });

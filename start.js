@@ -1,15 +1,12 @@
 var Server = require('./lib/server.js') 
-var path = require('path');
-var fs = require('fs');
+var configs = require('./lib/configs.js');
+var logger = require('winston');
 
+logger.level = configs.logLevel || "info";
 
-var configs = require('./lib/configReader.js')();
-
-console.log("=============== Loading Configs ===================");
-console.log(configs);
-console.log("===================================================");
-console.log("=============== Starting Server ===================");
-new Server(configs).start();
-console.log("===================================================");
-
-
+logger.debug("=============== Loading Configs ===================");
+logger.debug(configs);
+logger.debug("===================================================");
+logger.debug("=============== Starting Server ===================");
+new Server().start();
+logger.debug("===================================================");

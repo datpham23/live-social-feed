@@ -35,7 +35,7 @@ var ConfigurationComponent = React.createClass({
   },
   render:function(){
     return (
-      <div className="configruation-page">
+      <div className="configuration-page">
         <div className="container">
             <h2>Configuration</h2>
             <div className="header">
