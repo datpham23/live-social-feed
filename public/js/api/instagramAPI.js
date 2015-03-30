@@ -5,16 +5,10 @@ var empty = function(){};
 
 
 var instagramIO;
-var configurationIO;
+var nameSpace = "/instagram"
+
 
 module.exports = {
-	getBoardConfigs : function (boardId,successCb,errorCb) {
-		$.ajax({
-			url: '/api/v1/board/'+boardId
-		}).done(successCb || empty).fail(errorCb || empty);
-	},
-
-	//this.socket = io.connect(window.location.origin);
 	getRecentInstagramPosts: function(tags){
 		var requests = [];
 		for(i = 0; i < tags.length; i++) {
@@ -32,14 +26,39 @@ module.exports = {
 		});
 	},
 	openSocketConnection: function(){
-		instagramIO = io.connect(window.location.origin,{query: 'tags=abc,def'});
+		console.log("open connection");
+		console.log(window.location.origin+nameSpace);
+		instagramIO = io.connect(window.location.origin+nameSpace,{query: 'tags=abc,def'});
 		instagramIO.on("connect",function(){
 			console.log("connection established");
 		})
+	},
+	openConnection: function (boardId,callBack) {
+		console.log(window.location.origin+nameSpace);
+		instagramIO = io.connect(window.location.origin + nameSpace, {
+			multiplex : false,
+			query: {boardId : boardId}
+		});
+
+		instagramIO.on('connect', function (socket) {
+			if(callBack)callBack();
+		});
+
+		instagramIO.on('test', function (response) {
+			console.log("test receceived")
+			console.log(response)
+		})
+
+		return instagramIO;
+	},
+	closeConnection: function(){
+		if(instagramIO)
+			instagramIO.disconnect();
 	}
-
-
 }
+
+
+
 
 //this.socket = io.connect(window.location.origin);
 //this.socket.on('newInstagramPosts', function (response) {

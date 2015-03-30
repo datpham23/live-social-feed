@@ -1,8 +1,9 @@
 var Director = require('director');
 require("expose?$!expose?jQuery!jquery");
 require('../../css/global.scss');
-require('../stores/InstagramStore');
+//require('../stores/InstagramStore');
 var api = require("../api/instagramAPI");
+var cAPi = require("../api/configurationAPI");
 
 
 
@@ -23,10 +24,21 @@ var routes = {
     console.log("Routing to gallery /")
 
     require.ensure([], function(){
-      currentPage = require('./homePage').render(null,{boardId: boardId});
+      currentPage = require('./galleryPage').render(null,{boardId: boardId});
     });
   },
   '/configure/:boardId' : function(boardId){
+    console.log("routing")
+    //cAPi.openConnection("x", function () {
+    //  console.log("config socket opened")
+    //})
+
+    api.openConnection(boardId,function(){
+      console.log("instagram socket opened");
+    })
+
+    console.log("here")
+
     require.ensure([], function(){
       currentPage = require('./configurationPage').render(null,{boardId: boardId});
     });

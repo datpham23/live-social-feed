@@ -14,7 +14,7 @@ var BoardComponent = React.createClass({
 						<span>{this.props.boardId}</span>
 					</h3>
 
-					<a href={"#/galery/"+this.props.boardId} className="btn btn-info btn-block">View Board</a>
+					<a href={"#/gallery/"+this.props.boardId} className="btn btn-info btn-block">View Board</a>
 					<a href={"#/postToBoard/"+this.props.boardId} className="btn btn-success btn-block">Post To Board</a>
 					<a href={"#/configure/"+this.props.boardId} className="btn btn-primary btn-block">Configure Board</a>
 				</div>
