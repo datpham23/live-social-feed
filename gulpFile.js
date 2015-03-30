@@ -1,8 +1,5 @@
 var gulp = require('gulp');
-var gulpWebpack = require('gulp-webpack');
-var webpack = require("webpack");
 var multipipe = require('multipipe');
-// var uglify = require('gulp-uglify');
 var concatCss = require('gulp-concat-css');
 var minifyCSS = require('gulp-minify-css');
 var named = require('vinyl-named');

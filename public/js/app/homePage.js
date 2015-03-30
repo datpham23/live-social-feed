@@ -122,6 +122,7 @@ var HomeComponent = React.createClass({
 
   },
   render:function(){
+    console.log("render")
     return (
       <div className="social-container" ref="socialContainer" id="container">
         { 

@@ -21,9 +21,6 @@ var routes = {
   },
   '/gallery/:boardId' : function(boardId){
     console.log("Routing to gallery /")
-    //api.getConfigs();
-    api.getRecentInstagramPosts(["bae","march"]);
-    api.openSocketConnection();
 
     require.ensure([], function(){
       currentPage = require('./homePage').render(null,{boardId: boardId});
