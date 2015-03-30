@@ -6,16 +6,15 @@ var objectAssign = require('object-assign');
 var Page = {
   component  : null,
   preRender : function(){
-    console.log("pre render")
+    //console.log("pre render")
   },
   postRender: function(){
-    console.log("post render")
+    //console.log("post render")
   },
   tearDown : function(){
-    console.log("tear down")
-    console.log(this)
+    //console.log("tear down")
   },
-  render: function(el){
+  render: function(el,props){
     if(this.component == null){
       throw "Page requires react component."
     }
@@ -23,7 +22,8 @@ var Page = {
     var element = el || document.body;
 
     this.preRender();
-    React.render(React.createElement(this.component),element)
+    React.unmountComponentAtNode(element);
+    React.render(React.createElement(this.component,props),element)
     this.postRender();
     return this;
   }

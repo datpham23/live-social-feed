@@ -2,7 +2,7 @@ var Director = require('director');
 require("expose?$!expose?jQuery!jquery");
 require('../../css/global.scss');
 require('../stores/InstagramStore');
-var api = require("../api/api");
+var api = require("../api/instagramAPI");
 
 
 
@@ -10,20 +10,28 @@ var currentPage;
 
 var routes = {
   '/' : function(){
-    console.log("Routing To Root /")
+    require.ensure([], function(){
+      currentPage = require('./landingPage').render();
+    });
+  },
+  '/board/:boardId' : function(boardId){
+    require.ensure([], function(){
+      currentPage = require('./boardPage').render(null,{boardId: boardId});
+    });
+  },
+  '/gallery/:boardId' : function(boardId){
+    console.log("Routing to gallery /")
     //api.getConfigs();
     api.getRecentInstagramPosts(["bae","march"]);
     api.openSocketConnection();
 
     require.ensure([], function(){
-      currentPage = require('./homePage').render();
+      currentPage = require('./homePage').render(null,{boardId: boardId});
     });
   },
-  '/configuration' : function(){
-    console.log("Routing To Configuration /")
-
+  '/configure/:boardId' : function(boardId){
     require.ensure([], function(){
-      currentPage = require('./configuration').render();
+      currentPage = require('./configurationPage').render(null,{boardId: boardId});
     });
   }
 };
@@ -31,6 +39,9 @@ var routes = {
 window.router = Director.Router(routes).configure({
   'notfound' : function(){
     console.log("Route not found");
+    require.ensure([], function(){
+      currentPage = require('./404').render();
+    });
   },
   before : function(){
     if(currentPage != null){

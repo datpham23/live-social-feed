@@ -3,25 +3,15 @@ var _ = require('underscore');
 var empty = function(){};
 
 
-var configs = {
-	"instagram" : {
-		"tags" : ["bae","marchmadness"]
-	}
-}
 
 var instagramIO;
+var configurationIO;
 
 module.exports = {
-	getConfigs : function () {
-
-		var localConfigs = window.localStorage.getItem("configuration");
-		console.log(localConfigs);
-
-		//$.get("/configs/tags").done(function(res){
-		//	configs = res;
-		//	if(successCb)successCb(configs);
-		//}).fail(errorCb || empty);
-		return configs;
+	getBoardConfigs : function (boardId,successCb,errorCb) {
+		$.ajax({
+			url: '/api/v1/board/'+boardId
+		}).done(successCb || empty).fail(errorCb || empty);
 	},
 
 	//this.socket = io.connect(window.location.origin);
