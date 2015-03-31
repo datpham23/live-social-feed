@@ -69,11 +69,53 @@ var HomeComponent = React.createClass({
       }
     };
   },
-  onReceiveNewPosts: function(posts){
-    console.log(posts);
+  onReceiveNewPosts: function(response){
+    console.log(bundle);
+    var _this = this;
+    var bundle = response.newBundle;
+    var url = instagramUrl.replace(/{tagId}/,bundle.object_id).replace(/{client_id}/,response.client_id);
+
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+    }).done(function(posts){
+      var d = false;
+      var newPosts = [];
+      $.each(posts.data,function(index, post) {
+        var newPost = {
+          type : "INSTAGRAM",
+          mediaType : post.type,
+          userName : post.user.username,
+          fullName : post.user.full_name,
+          profilePictue : post.user.profile_picture,
+          picture :  post.images.standard_resolution.url,
+          video : post.type == "video" ? post.videos.standard_resolution.url : '',
+          caption : post.caption? post.caption.text : '',
+          time : post.created_time
+        }
+        newPosts.push(newPost);
+      });
+
+      var newState = _this.state.posts.concat(newPosts);
+      newState = _.uniq(newState, function(post) {
+        return post.userName+post.time;
+      });
+      newState = _.sortBy(newState, function(post){
+        return post.time
+      }).reverse();
+
+      if(newState.length > 100){
+        newState = newState.splice(0,100);
+      }
+      _this.setState({
+        posts : newState
+      })
+
+      //console.log(_this.state.posts.length);
+      //_this.socket.disconnect();
+    })
   },
   onConfigsChange:function(configs){
-    console.log("onconfigschange");
     this.setState({
       configs : $.extend(this.state.configs,configs)
     })

@@ -45,9 +45,8 @@ module.exports = {
 		Instagram
 	 */
 	listenForInstagramPosts:function(callBack){
-		socketIO.on("newInstagramPosts",function(){
-			console.log("new instagram")
-		});
+		console.log("listenForInstagramPosts");
+		socketIO.on("newInstagramPosts",callBack);
 	},
 	setSocketSubscriptions:function(configs,callBack){
 		socketIO.emit('setSocketSubscriptions', configs);

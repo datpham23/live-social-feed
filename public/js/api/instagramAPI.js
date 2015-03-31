@@ -24,35 +24,5 @@ module.exports = {
 				posts = posts.concat(res[0]);
 			})
 		});
-	},
-	openSocketConnection: function(){
-		console.log("open connection");
-		console.log(window.location.origin+nameSpace);
-		instagramIO = io.connect(window.location.origin+nameSpace,{query: 'tags=abc,def'});
-		instagramIO.on("connect",function(){
-			console.log("connection established");
-		})
-	},
-	openConnection: function (boardId,callBack) {
-		console.log(window.location.origin+nameSpace);
-		instagramIO = io.connect(window.location.origin + nameSpace, {
-			multiplex : false,
-			query: {boardId : boardId}
-		});
-
-		instagramIO.on('connect', function (socket) {
-			if(callBack)callBack();
-		});
-
-		instagramIO.on('test', function (response) {
-			console.log("test receceived")
-			console.log(response)
-		})
-
-		return instagramIO;
-	},
-	closeConnection: function(){
-		if(instagramIO)
-			instagramIO.disconnect();
 	}
 }
