@@ -1,5 +1,5 @@
-var Server = require('./lib/server.js') 
-var configs = require('./lib/configs.js');
+var Server = require('./lib/server')
+var configs = require('./lib/configs');
 var logger = require('winston');
 
 logger.level = configs.logLevel || "debug";
