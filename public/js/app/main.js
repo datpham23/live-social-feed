@@ -21,24 +21,11 @@ var routes = {
     });
   },
   '/gallery/:boardId' : function(boardId){
-    console.log("Routing to gallery /")
-
     require.ensure([], function(){
       currentPage = require('./galleryPage').render(null,{boardId: boardId});
     });
   },
   '/configure/:boardId' : function(boardId){
-    console.log("routing")
-    //cAPi.openConnection("x", function () {
-    //  console.log("config socket opened")
-    //})
-
-    api.openConnection(boardId,function(){
-      console.log("instagram socket opened");
-    })
-
-    console.log("here")
-
     require.ensure([], function(){
       currentPage = require('./configurationPage').render(null,{boardId: boardId});
     });

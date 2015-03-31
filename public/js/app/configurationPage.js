@@ -3,6 +3,7 @@ window.React = React;
 var Page = require('../core/PageClass');
 var TaggedInput = require('react-tagged-input');
 var configurationAPI = require('../api/configurationAPI');
+var socketManager = require('../api/socketManager');
 var PageHeader = require("../components/PageHeader")
 
 
@@ -29,17 +30,21 @@ var ConfigurationComponent = React.createClass({
   },
   initialization:function(){
     var _this = this;
-    configurationAPI.openConnection(this.props.boardId,function(){
+    socketManager.openConnection(this.props.boardId,function(){
       console.log("connection opened");
       _this.setState({
         connectionOpened : true
       })
 
-      configurationAPI.listenForNewConfigs(_this.onReceivedConfigs);
+      socketManager.listenForNewConfigs(_this.onReceivedConfigs);
+    },function(){
+      _this.setState({
+        connectionOpened : false
+      })
     })
   },
   componentWillUnmount:function(){
-    configurationAPI.closeConnection();
+    socketManager.closeConnection();
   },
   onReceivedConfigs:function(configs){
     this.setState({
@@ -47,7 +52,7 @@ var ConfigurationComponent = React.createClass({
     });
   },
   onTagUpdate:function(){
-    configurationAPI.saveConfiguration(this.state.configs);
+    socketManager.saveConfiguration(this.state.configs);
   },
   render:function(){
     return (
