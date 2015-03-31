@@ -33,7 +33,7 @@
     "json": "^9.0.3",
     "jsx-loader": "^0.12.2",
     "multipipe": "^0.1.2",
-    "node-sass": "1.2.2",
+    "node-sass": "^2.1.1",
     "object-assign": "^2.0.0",
     "path": "^0.11.14",
     "randomstring": "^1.0.3",
