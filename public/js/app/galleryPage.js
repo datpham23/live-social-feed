@@ -7,7 +7,8 @@ var jQBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
 $.bridget( 'isotope', Isotope );
 var imagesLoaded = require('imagesLoaded');
-
+var configurationAPI = require('../api/configurationAPI');
+var socketManager = require('../api/socketManager');
 
 
 var instagramUrl = 'https://api.instagram.com/v1/tags/{tagId}/media/recent?client_id={client_id}';
@@ -42,63 +43,97 @@ var InstagramPost = React.createClass({
 
 var HomeComponent = React.createClass({
   getInitialState: function() {
+    var _this = this;
+
+    configurationAPI.getBoardConfigs(_this.props.boardId,function(configs){
+      console.log("received configs");
+      socketManager.openConnection(_this.props.boardId,function(){
+        console.log("socked opened")
+        socketManager.listenForInstagramPosts(_this.onReceiveNewPosts);
+
+      },function(){
+        console.log("socket closed")
+      })
+
+      _this.onConfigsChange(configs);
+    },function(err){
+      console.log("error");
+    })
+
     return { 
-      posts : []
+      posts : [],
+      configs : {
+        instagramTags : [],
+        twitterTags : [],
+        facebookTags : []
+      }
     };
   },
+  onReceiveNewPosts: function(posts){
+    console.log(posts);
+  },
+  onConfigsChange:function(configs){
+    console.log("onconfigschange");
+    this.setState({
+      configs : $.extend(this.state.configs,configs)
+    })
+
+    socketManager.setSocketSubscriptions(this.state.configs);
+
+  },
   componentDidMount: function() {
-    var _this = this;
-    this.socket = io.connect(window.location.origin);
-    this.socket.on('newInstagramPosts', function (response) {
-      $.each(response.newBundles, function(index, bundle) {
-        var url = instagramUrl.replace(/{tagId}/,bundle.object_id).replace(/{client_id}/,response.client_id);
-
-        $.ajax({
-          url: url,
-          dataType: 'jsonp',  
-        }).done(function(posts){
-          var d = false;
-          var newPosts = [];
-          $.each(posts.data,function(index, post) {
-            var newPost = {
-              type : "INSTAGRAM",
-              mediaType : post.type,
-              userName : post.user.username,
-              fullName : post.user.full_name,
-              profilePictue : post.user.profile_picture,
-              picture :  post.images.standard_resolution.url,
-              video : post.type == "video" ? post.videos.standard_resolution.url : '',
-              caption : post.caption? post.caption.text : '',
-              time : post.created_time     
-            }
-            newPosts.push(newPost);
-          });
-          
-          var newState = _this.state.posts.concat(newPosts);
-          newState = _.uniq(newState, function(post) { 
-            return post.userName+post.time;
-          });
-          newState = _.sortBy(newState, function(post){ 
-            return post.time
-          }).reverse();
-
-          if(newState.length > 100){
-            newState = newState.splice(0,100);
-          }
-          _this.setState({
-            posts : newState
-          })
-
-          console.log(_this.state.posts.length);
-          //_this.socket.disconnect();
-        })
-      });
-    });
+    //var _this = this;
+    //this.socket = io.connect(window.location.origin);
+    //this.socket.on('newInstagramPosts', function (response) {
+    //  $.each(response.newBundles, function(index, bundle) {
+    //    var url = instagramUrl.replace(/{tagId}/,bundle.object_id).replace(/{client_id}/,response.client_id);
+    //
+    //    $.ajax({
+    //      url: url,
+    //      dataType: 'jsonp',
+    //    }).done(function(posts){
+    //      var d = false;
+    //      var newPosts = [];
+    //      $.each(posts.data,function(index, post) {
+    //        var newPost = {
+    //          type : "INSTAGRAM",
+    //          mediaType : post.type,
+    //          userName : post.user.username,
+    //          fullName : post.user.full_name,
+    //          profilePictue : post.user.profile_picture,
+    //          picture :  post.images.standard_resolution.url,
+    //          video : post.type == "video" ? post.videos.standard_resolution.url : '',
+    //          caption : post.caption? post.caption.text : '',
+    //          time : post.created_time
+    //        }
+    //        newPosts.push(newPost);
+    //      });
+    //
+    //      var newState = _this.state.posts.concat(newPosts);
+    //      newState = _.uniq(newState, function(post) {
+    //        return post.userName+post.time;
+    //      });
+    //      newState = _.sortBy(newState, function(post){
+    //        return post.time
+    //      }).reverse();
+    //
+    //      if(newState.length > 100){
+    //        newState = newState.splice(0,100);
+    //      }
+    //      _this.setState({
+    //        posts : newState
+    //      })
+    //
+    //      console.log(_this.state.posts.length);
+    //      //_this.socket.disconnect();
+    //    })
+    //  });
+    //});
 
     
     this.isotope = $(this.refs.socialContainer.getDOMNode()).isotope({ 
       layoutMode: 'masonry',
-      itemSelector: '.cell', 
+      itemSelector: '.cell'
     });
 
     this.refs.socialContainer.getDOMNode().focus();
@@ -115,7 +150,7 @@ var HomeComponent = React.createClass({
       _this.isotope.isotope('reloadItems')
       _this.isotope = $(_this.refs.socialContainer.getDOMNode()).isotope({ 
         layoutMode: 'masonry',
-        itemSelector: '.cell', 
+        itemSelector: '.cell'
       });
     });
     

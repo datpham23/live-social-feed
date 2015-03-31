@@ -38,9 +38,9 @@ var ConfigurationComponent = React.createClass({
 
       socketManager.listenForNewConfigs(_this.onReceivedConfigs);
     },function(){
-      _this.setState({
-        connectionOpened : false
-      })
+      //_this.setState({
+      //  connectionOpened : false
+      //})
     })
   },
   componentWillUnmount:function(){

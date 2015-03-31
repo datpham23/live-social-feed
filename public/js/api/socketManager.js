@@ -33,14 +33,24 @@ module.exports = {
 		return socketIO;
 	},
 	/*
-		Board Configuration related;
+		Board Configuration methods to listen and save configs
 	 */
 	saveConfiguration:function(config){
 		socketIO.emit('saveConfig', config);
 	},
 	listenForNewConfigs:function(callBack){
-		console.log("listening for new configs")
 		socketIO.on("newConfigs",callBack);
+	},
+	/*
+		Instagram
+	 */
+	listenForInstagramPosts:function(callBack){
+		socketIO.on("newInstagramPosts",function(){
+			console.log("new instagram")
+		});
+	},
+	setSocketSubscriptions:function(configs,callBack){
+		socketIO.emit('setSocketSubscriptions', configs);
 	}
 }
 
