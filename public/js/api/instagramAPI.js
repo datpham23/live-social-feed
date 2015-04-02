@@ -5,7 +5,11 @@ var empty = function(){};
 
 
 var instagramIO;
-var nameSpace = "/instagram"
+var apiVersion = "/api/v1/instagram"
+var urls = {
+	getRecentTag : apiVersion+"/recent/{tag}"
+}
+
 
 
 module.exports = {
@@ -14,7 +18,7 @@ module.exports = {
 		for(i = 0; i < tags.length; i++) {
 			var tag = tags[i];
 			requests.push($.ajax({
-				url: '/instagram/recent/'+tag
+				url: getRecentTag.reaplace(/tag/,tag)
 			}));
 		}
 

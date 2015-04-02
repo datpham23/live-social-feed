@@ -41,12 +41,12 @@ var InstagramPost = React.createClass({
 });
 
 
-var HomeComponent = React.createClass({
+var GalleryComponent = React.createClass({
   getInitialState: function() {
     var _this = this;
 
     configurationAPI.getBoardConfigs(_this.props.boardId,function(configs){
-      console.log("received configs");
+      console.log(configs);
       socketManager.openConnection(_this.props.boardId,function(){
         console.log("socked opened")
         socketManager.listenForInstagramPosts(_this.onReceiveNewPosts);
@@ -63,9 +63,15 @@ var HomeComponent = React.createClass({
     return { 
       posts : [],
       configs : {
-        instagramTags : [],
-        twitterTags : [],
-        facebookTags : []
+        instagram : {
+          tags : []
+        },
+        twitter : {
+          tags : []
+        },
+        facebook : {
+          tags : []
+        }
       }
     };
   },
@@ -73,7 +79,7 @@ var HomeComponent = React.createClass({
     console.log(bundle);
     var _this = this;
     var bundle = response.newBundle;
-    var url = instagramUrl.replace(/{tagId}/,bundle.object_id).replace(/{client_id}/,response.client_id);
+    var url = instagramUrl.replace(/{tagId}/,bundle.object_id).replace(/{access_token}/,this.state.configs.instagram.accessToken);
 
     $.ajax({
       url: url,
@@ -134,10 +140,7 @@ var HomeComponent = React.createClass({
 
   },  
   componentDidUpdate: function(prevProps, prevState) {
-    console.log("did update")
     var _this = this;
-
-    
 
     imagesLoaded(this.refs.socialContainer.getDOMNode(), function() {
       _this.isotope.isotope('reloadItems')
@@ -150,7 +153,6 @@ var HomeComponent = React.createClass({
 
   },
   render:function(){
-    console.log("render")
     return (
       <div className="social-container" ref="socialContainer" id="container">
         { 
@@ -168,5 +170,5 @@ var HomeComponent = React.createClass({
 
 
 module.exports = Page.createPage({
-  component : HomeComponent
+  component : GalleryComponent
 });
