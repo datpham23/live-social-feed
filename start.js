@@ -1,7 +1,32 @@
-var Server    = require('./lib/server')
+var server    = require('./lib/server')
 var configs   = require('./lib/configs');
 var logger    = require('winston');
 var path      = require('path');
+var users     = require('./lib/dao/UsersDAO');
+var db         = require('./lib/db/database');
+var async     = require('async');
+
+logger.level = configs.logLevel || "debug";
+
+db.initialize(function(e){
+	//users.createUser('xyz',function(err,result){
+	//	//console.log(err);
+	//	//console.log("xxxx");
+	//	//console.log(result);
+	//
+	//	users.getUser('xyz',function(err,user){
+	//		user.instagramToken = "abc";
+	//
+	//		users.updateUser(user,function(err,cb){
+	//			console.log(err);
+	//			console.log(user);
+	//		})
+	//	});
+	//});
+
+});
+
+
 
 logger.level = configs.logLevel || "debug";
 
@@ -12,5 +37,5 @@ logger.debug("=============== Loading Configs ===================");
 logger.debug(configs);
 logger.debug("===================================================");
 logger.debug("=============== Starting Server ===================");
-Server.start();
+server.start();
 logger.debug("===================================================");
