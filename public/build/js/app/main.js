@@ -122,7 +122,7 @@
 	    });
 	  },
 	  '/configure/:boardId' : function(boardId){
-	    __webpack_require__.e/* nsure */(4/* empty */, function(){
+	    __webpack_require__.e/* nsure */(4, function(){
 	      currentPage = __webpack_require__(6).render(null,{boardId: boardId});
 	    });
 	  }
@@ -12178,11 +12178,11 @@
 	var url = __webpack_require__(43);
 	var eio = __webpack_require__(110);
 	var Socket = __webpack_require__(45);
-	var Emitter = __webpack_require__(111);
+	var Emitter = __webpack_require__(113);
 	var parser = __webpack_require__(57);
 	var on = __webpack_require__(87);
-	var bind = __webpack_require__(112);
-	var object = __webpack_require__(113);
+	var bind = __webpack_require__(111);
+	var object = __webpack_require__(112);
 	var debug = __webpack_require__(61)('socket.io-client:manager');
 	var indexOf = __webpack_require__(114);
 	var Backoff = __webpack_require__(115);
@@ -12685,10 +12685,10 @@
 	 */
 
 	var parser = __webpack_require__(57);
-	var Emitter = __webpack_require__(111);
+	var Emitter = __webpack_require__(113);
 	var toArray = __webpack_require__(116);
 	var on = __webpack_require__(87);
-	var bind = __webpack_require__(112);
+	var bind = __webpack_require__(111);
 	var debug = __webpack_require__(61)('socket.io-client:socket');
 	var hasBin = __webpack_require__(117);
 
@@ -13089,7 +13089,7 @@
 	var debug = __webpack_require__(61)('socket.io-parser');
 	var json = __webpack_require__(177);
 	var isArray = __webpack_require__(167);
-	var Emitter = __webpack_require__(111);
+	var Emitter = __webpack_require__(113);
 	var binary = __webpack_require__(118);
 	var isBuf = __webpack_require__(119);
 
@@ -13741,11 +13741,129 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	module.exports =  __webpack_require__(208);
+	module.exports =  __webpack_require__(210);
 
 
 /***/ },
 /* 111 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Slice reference.
+	 */
+
+	var slice = [].slice;
+
+	/**
+	 * Bind `obj` to `fn`.
+	 *
+	 * @param {Object} obj
+	 * @param {Function|String} fn or string
+	 * @return {Function}
+	 * @api public
+	 */
+
+	module.exports = function(obj, fn){
+	  if ('string' == typeof fn) fn = obj[fn];
+	  if ('function' != typeof fn) throw new Error('bind() requires a function');
+	  var args = slice.call(arguments, 2);
+	  return function(){
+	    return fn.apply(obj, args.concat(slice.call(arguments)));
+	  }
+	};
+
+
+/***/ },
+/* 112 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * HOP ref.
+	 */
+
+	var has = Object.prototype.hasOwnProperty;
+
+	/**
+	 * Return own keys in `obj`.
+	 *
+	 * @param {Object} obj
+	 * @return {Array}
+	 * @api public
+	 */
+
+	exports.keys = Object.keys || function(obj){
+	  var keys = [];
+	  for (var key in obj) {
+	    if (has.call(obj, key)) {
+	      keys.push(key);
+	    }
+	  }
+	  return keys;
+	};
+
+	/**
+	 * Return own values in `obj`.
+	 *
+	 * @param {Object} obj
+	 * @return {Array}
+	 * @api public
+	 */
+
+	exports.values = function(obj){
+	  var vals = [];
+	  for (var key in obj) {
+	    if (has.call(obj, key)) {
+	      vals.push(obj[key]);
+	    }
+	  }
+	  return vals;
+	};
+
+	/**
+	 * Merge `b` into `a`.
+	 *
+	 * @param {Object} a
+	 * @param {Object} b
+	 * @return {Object} a
+	 * @api public
+	 */
+
+	exports.merge = function(a, b){
+	  for (var key in b) {
+	    if (has.call(b, key)) {
+	      a[key] = b[key];
+	    }
+	  }
+	  return a;
+	};
+
+	/**
+	 * Return length of `obj`.
+	 *
+	 * @param {Object} obj
+	 * @return {Number}
+	 * @api public
+	 */
+
+	exports.length = function(obj){
+	  return exports.keys(obj).length;
+	};
+
+	/**
+	 * Check if `obj` is empty.
+	 *
+	 * @param {Object} obj
+	 * @return {Boolean}
+	 * @api public
+	 */
+
+	exports.isEmpty = function(obj){
+	  return 0 == exports.length(obj);
+	};
+
+/***/ },
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -13913,124 +14031,6 @@
 	  return !! this.listeners(event).length;
 	};
 
-
-/***/ },
-/* 112 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Slice reference.
-	 */
-
-	var slice = [].slice;
-
-	/**
-	 * Bind `obj` to `fn`.
-	 *
-	 * @param {Object} obj
-	 * @param {Function|String} fn or string
-	 * @return {Function}
-	 * @api public
-	 */
-
-	module.exports = function(obj, fn){
-	  if ('string' == typeof fn) fn = obj[fn];
-	  if ('function' != typeof fn) throw new Error('bind() requires a function');
-	  var args = slice.call(arguments, 2);
-	  return function(){
-	    return fn.apply(obj, args.concat(slice.call(arguments)));
-	  }
-	};
-
-
-/***/ },
-/* 113 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	/**
-	 * HOP ref.
-	 */
-
-	var has = Object.prototype.hasOwnProperty;
-
-	/**
-	 * Return own keys in `obj`.
-	 *
-	 * @param {Object} obj
-	 * @return {Array}
-	 * @api public
-	 */
-
-	exports.keys = Object.keys || function(obj){
-	  var keys = [];
-	  for (var key in obj) {
-	    if (has.call(obj, key)) {
-	      keys.push(key);
-	    }
-	  }
-	  return keys;
-	};
-
-	/**
-	 * Return own values in `obj`.
-	 *
-	 * @param {Object} obj
-	 * @return {Array}
-	 * @api public
-	 */
-
-	exports.values = function(obj){
-	  var vals = [];
-	  for (var key in obj) {
-	    if (has.call(obj, key)) {
-	      vals.push(obj[key]);
-	    }
-	  }
-	  return vals;
-	};
-
-	/**
-	 * Merge `b` into `a`.
-	 *
-	 * @param {Object} a
-	 * @param {Object} b
-	 * @return {Object} a
-	 * @api public
-	 */
-
-	exports.merge = function(a, b){
-	  for (var key in b) {
-	    if (has.call(b, key)) {
-	      a[key] = b[key];
-	    }
-	  }
-	  return a;
-	};
-
-	/**
-	 * Return length of `obj`.
-	 *
-	 * @param {Object} obj
-	 * @return {Number}
-	 * @api public
-	 */
-
-	exports.length = function(obj){
-	  return exports.keys(obj).length;
-	};
-
-	/**
-	 * Check if `obj` is empty.
-	 *
-	 * @param {Object} obj
-	 * @return {Boolean}
-	 * @api public
-	 */
-
-	exports.isEmpty = function(obj){
-	  return 0 == exports.length(obj);
-	};
 
 /***/ },
 /* 114 */
@@ -15353,7 +15353,9 @@
 /* 205 */,
 /* 206 */,
 /* 207 */,
-/* 208 */
+/* 208 */,
+/* 209 */,
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -15365,12 +15367,10 @@
 	 * @api public
 	 *
 	 */
-	module.exports.parser = __webpack_require__(223);
+	module.exports.parser = __webpack_require__(222);
 
 
 /***/ },
-/* 209 */,
-/* 210 */,
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -15404,10 +15404,10 @@
 	 */
 
 	var transports = __webpack_require__(226);
-	var Emitter = __webpack_require__(111);
+	var Emitter = __webpack_require__(113);
 	var debug = __webpack_require__(230)('engine.io-client:socket');
 	var index = __webpack_require__(114);
-	var parser = __webpack_require__(223);
+	var parser = __webpack_require__(222);
 	var parseuri = __webpack_require__(227);
 	var parsejson = __webpack_require__(228);
 	var parseqs = __webpack_require__(229);
@@ -15527,7 +15527,7 @@
 	Socket.Socket = Socket;
 	Socket.Transport = __webpack_require__(225);
 	Socket.transports = __webpack_require__(226);
-	Socket.parser = __webpack_require__(223);
+	Socket.parser = __webpack_require__(222);
 
 	/**
 	 * Creates transport of the given type.
@@ -16108,8 +16108,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 222 */,
-/* 223 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -16117,11 +16116,11 @@
 	 */
 
 	var keys = __webpack_require__(233);
-	var hasBinary = __webpack_require__(238);
-	var sliceBuffer = __webpack_require__(239);
-	var base64encoder = __webpack_require__(242);
-	var after = __webpack_require__(240);
-	var utf8 = __webpack_require__(243);
+	var hasBinary = __webpack_require__(239);
+	var sliceBuffer = __webpack_require__(240);
+	var base64encoder = __webpack_require__(243);
+	var after = __webpack_require__(238);
+	var utf8 = __webpack_require__(242);
 
 	/**
 	 * Check if we are running an android browser. That requires us to use
@@ -16710,6 +16709,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+/* 223 */,
 /* 224 */,
 /* 225 */
 /***/ function(module, exports, __webpack_require__) {
@@ -16718,8 +16718,8 @@
 	 * Module dependencies.
 	 */
 
-	var parser = __webpack_require__(223);
-	var Emitter = __webpack_require__(111);
+	var parser = __webpack_require__(222);
+	var Emitter = __webpack_require__(113);
 
 	/**
 	 * Module exports.
@@ -17246,7 +17246,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// browser shim for xmlhttprequest module
-	var hasCORS = __webpack_require__(247);
+	var hasCORS = __webpack_require__(248);
 
 	module.exports = function(opts) {
 	  var xdomain = opts.xdomain;
@@ -17293,8 +17293,8 @@
 
 	var XMLHttpRequest = __webpack_require__(234);
 	var Polling = __webpack_require__(246);
-	var Emitter = __webpack_require__(111);
-	var inherit = __webpack_require__(248);
+	var Emitter = __webpack_require__(113);
+	var inherit = __webpack_require__(247);
 	var debug = __webpack_require__(230)('engine.io-client:polling-xhr');
 
 	/**
@@ -17684,7 +17684,7 @@
 	 */
 
 	var Polling = __webpack_require__(246);
-	var inherit = __webpack_require__(248);
+	var inherit = __webpack_require__(247);
 
 	/**
 	 * Module exports.
@@ -17923,9 +17923,9 @@
 	 */
 
 	var Transport = __webpack_require__(225);
-	var parser = __webpack_require__(223);
+	var parser = __webpack_require__(222);
 	var parseqs = __webpack_require__(229);
-	var inherit = __webpack_require__(248);
+	var inherit = __webpack_require__(247);
 	var debug = __webpack_require__(230)('engine.io-client:websocket');
 
 	/**
@@ -18162,6 +18162,40 @@
 /* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = after
+
+	function after(count, callback, err_cb) {
+	    var bail = false
+	    err_cb = err_cb || noop
+	    proxy.count = count
+
+	    return (count === 0) ? callback() : proxy
+
+	    function proxy(err, result) {
+	        if (proxy.count <= 0) {
+	            throw new Error('after called too many times')
+	        }
+	        --proxy.count
+
+	        // after first error, rest are passed to err_cb
+	        if (err) {
+	            bail = true
+	            callback(err)
+	            // future error callbacks will go to error handler
+	            callback = err_cb
+	        } else if (proxy.count === 0 && !bail) {
+	            callback(null, result)
+	        }
+	    }
+	}
+
+	function noop() {}
+
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(global) {
 	/*
 	 * Module requirements.
@@ -18224,7 +18258,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18256,40 +18290,6 @@
 	  }
 	  return result.buffer;
 	};
-
-
-/***/ },
-/* 240 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = after
-
-	function after(count, callback, err_cb) {
-	    var bail = false
-	    err_cb = err_cb || noop
-	    proxy.count = count
-
-	    return (count === 0) ? callback() : proxy
-
-	    function proxy(err, result) {
-	        if (proxy.count <= 0) {
-	            throw new Error('after called too many times')
-	        }
-	        --proxy.count
-
-	        // after first error, rest are passed to err_cb
-	        if (err) {
-	            bail = true
-	            callback(err)
-	            // future error callbacks will go to error handler
-	            callback = err_cb
-	        } else if (proxy.count === 0 && !bail) {
-	            callback(null, result)
-	        }
-	    }
-	}
-
-	function noop() {}
 
 
 /***/ },
@@ -18350,71 +18350,6 @@
 
 /***/ },
 /* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 * base64-arraybuffer
-	 * https://github.com/niklasvh/base64-arraybuffer
-	 *
-	 * Copyright (c) 2012 Niklas von Hertzen
-	 * Licensed under the MIT license.
-	 */
-	(function(chars){
-	  "use strict";
-
-	  exports.encode = function(arraybuffer) {
-	    var bytes = new Uint8Array(arraybuffer),
-	    i, len = bytes.length, base64 = "";
-
-	    for (i = 0; i < len; i+=3) {
-	      base64 += chars[bytes[i] >> 2];
-	      base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];
-	      base64 += chars[((bytes[i + 1] & 15) << 2) | (bytes[i + 2] >> 6)];
-	      base64 += chars[bytes[i + 2] & 63];
-	    }
-
-	    if ((len % 3) === 2) {
-	      base64 = base64.substring(0, base64.length - 1) + "=";
-	    } else if (len % 3 === 1) {
-	      base64 = base64.substring(0, base64.length - 2) + "==";
-	    }
-
-	    return base64;
-	  };
-
-	  exports.decode =  function(base64) {
-	    var bufferLength = base64.length * 0.75,
-	    len = base64.length, i, p = 0,
-	    encoded1, encoded2, encoded3, encoded4;
-
-	    if (base64[base64.length - 1] === "=") {
-	      bufferLength--;
-	      if (base64[base64.length - 2] === "=") {
-	        bufferLength--;
-	      }
-	    }
-
-	    var arraybuffer = new ArrayBuffer(bufferLength),
-	    bytes = new Uint8Array(arraybuffer);
-
-	    for (i = 0; i < len; i+=4) {
-	      encoded1 = chars.indexOf(base64[i]);
-	      encoded2 = chars.indexOf(base64[i+1]);
-	      encoded3 = chars.indexOf(base64[i+2]);
-	      encoded4 = chars.indexOf(base64[i+3]);
-
-	      bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);
-	      bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);
-	      bytes[p++] = ((encoded3 & 3) << 6) | (encoded4 & 63);
-	    }
-
-	    return arraybuffer;
-	  };
-	})("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
-
-
-/***/ },
-/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! http://mths.be/utf8js v2.0.0 by @mathias */
@@ -18655,7 +18590,72 @@
 
 	}(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(250)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(249)(module), (function() { return this; }())))
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 * base64-arraybuffer
+	 * https://github.com/niklasvh/base64-arraybuffer
+	 *
+	 * Copyright (c) 2012 Niklas von Hertzen
+	 * Licensed under the MIT license.
+	 */
+	(function(chars){
+	  "use strict";
+
+	  exports.encode = function(arraybuffer) {
+	    var bytes = new Uint8Array(arraybuffer),
+	    i, len = bytes.length, base64 = "";
+
+	    for (i = 0; i < len; i+=3) {
+	      base64 += chars[bytes[i] >> 2];
+	      base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];
+	      base64 += chars[((bytes[i + 1] & 15) << 2) | (bytes[i + 2] >> 6)];
+	      base64 += chars[bytes[i + 2] & 63];
+	    }
+
+	    if ((len % 3) === 2) {
+	      base64 = base64.substring(0, base64.length - 1) + "=";
+	    } else if (len % 3 === 1) {
+	      base64 = base64.substring(0, base64.length - 2) + "==";
+	    }
+
+	    return base64;
+	  };
+
+	  exports.decode =  function(base64) {
+	    var bufferLength = base64.length * 0.75,
+	    len = base64.length, i, p = 0,
+	    encoded1, encoded2, encoded3, encoded4;
+
+	    if (base64[base64.length - 1] === "=") {
+	      bufferLength--;
+	      if (base64[base64.length - 2] === "=") {
+	        bufferLength--;
+	      }
+	    }
+
+	    var arraybuffer = new ArrayBuffer(bufferLength),
+	    bytes = new Uint8Array(arraybuffer);
+
+	    for (i = 0; i < len; i+=4) {
+	      encoded1 = chars.indexOf(base64[i]);
+	      encoded2 = chars.indexOf(base64[i+1]);
+	      encoded3 = chars.indexOf(base64[i+2]);
+	      encoded4 = chars.indexOf(base64[i+3]);
+
+	      bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);
+	      bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);
+	      bytes[p++] = ((encoded3 & 3) << 6) | (encoded4 & 63);
+	    }
+
+	    return arraybuffer;
+	  };
+	})("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
+
 
 /***/ },
 /* 244 */,
@@ -18871,8 +18871,8 @@
 
 	var Transport = __webpack_require__(225);
 	var parseqs = __webpack_require__(229);
-	var parser = __webpack_require__(223);
-	var inherit = __webpack_require__(248);
+	var parser = __webpack_require__(222);
+	var inherit = __webpack_require__(247);
 	var debug = __webpack_require__(230)('engine.io-client:polling');
 
 	/**
@@ -19117,6 +19117,18 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
+	module.exports = function(a, b){
+	  var fn = function(){};
+	  fn.prototype = b.prototype;
+	  a.prototype = new fn;
+	  a.prototype.constructor = a;
+	};
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
 	/**
 	 * Module dependencies.
 	 */
@@ -19142,20 +19154,7 @@
 
 
 /***/ },
-/* 248 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	module.exports = function(a, b){
-	  var fn = function(){};
-	  fn.prototype = b.prototype;
-	  a.prototype = new fn;
-	  a.prototype.constructor = a;
-	};
-
-/***/ },
-/* 249 */,
-/* 250 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function(module) {
@@ -19171,6 +19170,7 @@
 
 
 /***/ },
+/* 250 */,
 /* 251 */
 /***/ function(module, exports, __webpack_require__) {
 

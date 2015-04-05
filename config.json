@@ -6,6 +6,10 @@
     "client_id": "83cc9053ca774d0891335457c52b615b",
     "client_secret": "9d85bac19a044c278733fdc2a9215774"
   },
+  "twitter" : {
+    "client_id": "co2Ez7pKi5GSJ237isYihqiCT",
+    "client_secret": "K785eLcSblDOOQUpkeFYPjhIdLnvOjLisZ8Jc7ZOw0614wcukT"
+  },
   "db":{
     "name": "pulsar",
     "port" : 28015
