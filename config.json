@@ -10,6 +10,10 @@
     "client_id": "co2Ez7pKi5GSJ237isYihqiCT",
     "client_secret": "K785eLcSblDOOQUpkeFYPjhIdLnvOjLisZ8Jc7ZOw0614wcukT"
   },
+  facebook : {
+    "client_id": "345072442368476",
+    "client_secret": "52939f6c55e7041b27fb514633eff5fd"
+  },
   "db":{
     "name": "pulsar",
     "port" : 28015

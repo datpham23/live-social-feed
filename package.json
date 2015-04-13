@@ -39,6 +39,7 @@
     "node-sass": "^2.1.1",
     "object-assign": "^2.0.0",
     "passport": "^0.2.1",
+    "passport-facebook": "^2.0.0",
     "passport-instagram": "^0.1.2",
     "passport-twitter": "^1.0.3",
     "path": "^0.11.14",
