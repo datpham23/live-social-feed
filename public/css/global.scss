@@ -65,14 +65,26 @@ h1,h2,h3,h4,h5,h6{
 
 .landing-page{
   .well.container{
-    padding-top: 19px;
+    //padding-top: 19px;
   }
-  .create-button{
-    margin-bottom: 150px;
+
+  .twitter-signin{
+    margin-top: 40px;
   }
-  .form-group{
-    margin-top: 100px;
+
+  .social-signin img{
+    -webkit-filter: invert(100%);
+    height: 45px;
+    position: absolute;
+    left: 10px;
   }
+  //.create-button{
+  //  margin-bottom: 150px;
+  //}
+  //.form-group{
+  //  margin-top: 100px;
+  //}
+
 }
 
 

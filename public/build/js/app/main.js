@@ -107,7 +107,7 @@
 
 	var routes = {
 	  '/' : function(){
-	    __webpack_require__.e/* nsure */(1, function(){
+	    __webpack_require__.e/* nsure */(1/* empty */, function(){
 	      currentPage = __webpack_require__(3).render();
 	    });
 	  },
@@ -975,7 +975,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
-	exports.push([module.id, "html {\n  height: 100%; }\n\nbody {\n  font-family: RobotoDraft, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;\n  font-weight: 300;\n  margin: 0;\n  padding: 0;\n  background-color: #f1f2f6;\n  -webkit-font-smoothing: antialiased;\n  height: 100%;\n  background: linear-gradient(270deg, #0d3b87, #1f8198, #b0169d);\n  background-size: 600% 600%;\n  -webkit-animation: Background 20s ease infinite;\n  -moz-animation: Background 20s ease infinite;\n  animation: Background 20s ease infinite; }\n\nh1, h2, h3, h4, h5, h6 {\n  font-weight: 200; }\n\n@-webkit-keyframes Background {\n  0% {\n    background-position: 0% 50%; }\n\n  50% {\n    background-position: 100% 50%; }\n\n  100% {\n    background-position: 0% 50%; } }\n\n@-moz-keyframes Background {\n  0% {\n    background-position: 0% 50%; }\n\n  50% {\n    background-position: 100% 50%; }\n\n  100% {\n    background-position: 0% 50%; } }\n\n@keyframes Background {\n  0% {\n    background-position: 0% 50%; }\n\n  50% {\n    background-position: 100% 50%; }\n\n  100% {\n    background-position: 0% 50%; } }\n\n@-webkit-keyframes slideUp {\n  0% {\n    -webkit-transform: translateY(6.25rem);\n    transform: translateY(6.25rem); }\n\n  100% {\n    -webkit-transform: translateY(0);\n    transform: translateY(0); } }\n\n@keyframes slideUp {\n  0% {\n    -webkit-transform: translateY(6.25rem);\n    transform: translateY(6.25rem); }\n\n  100% {\n    -webkit-transform: translateY(0);\n    transform: translateY(0); } }\n\n.no-margin {\n  margin: 0px; }\n\n.landing-page .well.container {\n  padding-top: 19px; }\n.landing-page .create-button {\n  margin-bottom: 150px; }\n.landing-page .form-group {\n  margin-top: 100px; }\n\n.page {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-content: flex-start;\n  align-items: center;\n  -webkit-animation: slideUp 0.1s ease;\n  -moz-animation: slideUp 0.1s ease;\n  animation: slideUp 0.1s ease; }\n  .page .container {\n    width: 500px;\n    min-height: 450px;\n    padding-top: 0px;\n    position: relative; }\n    .page .container .page-title span {\n      vertical-align: top; }\n  .page .back-button {\n    padding-left: 0px;\n    margin-left: -8px;\n    margin-bottom: 0px; }\n    .page .back-button span {\n      vertical-align: top;\n      font-size: 17px; }\n\n.social-container {\n  position: relative; }\n\n.cell {\n  width: 25%;\n  float: left;\n  box-sizing: border-box;\n  padding: 7px; }\n\n@media (max-width: 600px) {\n  .cell {\n    width: 100%; }\n }\n\n@media (min-width: 800px) {\n  .cell {\n    width: 50%; }\n }\n\n@media (min-width: 1200px) {\n  .cell {\n    width: 33%; }\n }\n\n@media (min-width: 1600px) {\n  .cell {\n    width: 20%; }\n }\n\n.cell .media-item {\n  padding: 5px;\n  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.1);\n  background: white;\n  position: relative; }\n  .cell .media-item .info {\n    padding: 7px 10px;\n    width: 100%;\n    color: #3C4152;\n    text-transform: uppercase;\n    font-size: 14px;\n    line-height: 16px;\n    font-weight: 700;\n    letter-spacing: 2px;\n    box-sizing: border-box;\n    position: relative; }\n    .cell .media-item .info img.profile {\n      width: 50px;\n      height: 50px;\n      border-radius: 150px;\n      float: left;\n      margin-right: 15px;\n      border: 1px solid #cbcbcb; }\n    .cell .media-item .info .text {\n      word-wrap: break-word; }\n      .cell .media-item .info .text .user-name {\n        margin-bottom: 10px;\n        color: #4A6179; }\n      .cell .media-item .info .text .message {\n        color: #252525;\n        font-weight: 100;\n        min-height: 22px; }\n  .cell .media-item img, .cell .media-item video {\n    width: 100%;\n    display: block; }\n  .cell .media-item .instagram-icon {\n    background: url('/img/instagram.png');\n    position: absolute;\n    background-size: 64%;\n    background-repeat: no-repeat;\n    right: 10px;\n    top: 10px;\n    padding: 17px;\n    background-color: #FFFFFF;\n    border-radius: 180px;\n    background-position: center; }\n\n.configuration-page .container > div {\n  margin-bottom: 40px; }\n.configuration-page .connection-indicator {\n  position: absolute;\n  top: 15px;\n  right: 15px; }\n.configuration-page .signin-container {\n  text-align: center;\n  margin-bottom: 20px; }\n  .configuration-page .signin-container .social-icon {\n    -webkit-filter: invert(100%);\n    width: 30px;\n    height: 30px;\n    margin-right: 20px; }\n  .configuration-page .signin-container .signin-button {\n    font-size: 18px; }\n.configuration-page .config-group {\n  position: relative;\n  margin-bottom: 30px; }\n  .configuration-page .config-group .social-icon {\n    width: 28px;\n    height: 28px;\n    position: absolute;\n    top: -5px;\n    left: 6px; }\n  .configuration-page .config-group .tagged-input-wrapper {\n    padding: 2px 0px 5px 45px; }\n\n.board-page .board-id {\n  margin-bottom: 30px; }\n\n.tagged-input-wrapper {\n  padding: 2px 0px 5px 2px;\n  min-height: 26px;\n  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);\n  background-size: 0 2px, 100% 1px;\n  background-repeat: no-repeat;\n  background-position: center bottom, center calc(100% - 1px);\n  background-color: transparent; }\n\n.tagged-input-wrapper .tagged-input {\n  border: none;\n  outline: none;\n  font-size: 16px; }\n\n.tagged-input-wrapper .tag .tag-text {\n  padding-left: 5px; }\n\n.tagged-input-wrapper .tag {\n  display: inline-block;\n  background-color: #E9E9E9;\n  padding: 2px 0px 2px 2px;\n  margin-left: 2px;\n  margin-right: 2px;\n  border-radius: 5px;\n  margin-bottom: 2px; }\n\n.tagged-input-wrapper .tag.duplicate {\n  background: #FFDB7B; }\n\n.tagged-input-wrapper .tag .remove {\n  color: #000000;\n  padding: 0px 4px;\n  font-size: 75%;\n  line-height: 100%;\n  cursor: pointer; }\n\n.tagged-input-wrapper .tag .remove:hover {\n  color: #03a9f4; }\n\n.tagged-input-wrapper .tag .remove, .tagged-input-wrapper .tag .tag-text {\n  display: inline-block; }\n", ""]);
+	exports.push([module.id, "html {\n  height: 100%; }\n\nbody {\n  font-family: RobotoDraft, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;\n  font-weight: 300;\n  margin: 0;\n  padding: 0;\n  background-color: #f1f2f6;\n  -webkit-font-smoothing: antialiased;\n  height: 100%;\n  background: linear-gradient(270deg, #0d3b87, #1f8198, #b0169d);\n  background-size: 600% 600%;\n  -webkit-animation: Background 20s ease infinite;\n  -moz-animation: Background 20s ease infinite;\n  animation: Background 20s ease infinite; }\n\nh1, h2, h3, h4, h5, h6 {\n  font-weight: 200; }\n\n@-webkit-keyframes Background {\n  0% {\n    background-position: 0% 50%; }\n\n  50% {\n    background-position: 100% 50%; }\n\n  100% {\n    background-position: 0% 50%; } }\n\n@-moz-keyframes Background {\n  0% {\n    background-position: 0% 50%; }\n\n  50% {\n    background-position: 100% 50%; }\n\n  100% {\n    background-position: 0% 50%; } }\n\n@keyframes Background {\n  0% {\n    background-position: 0% 50%; }\n\n  50% {\n    background-position: 100% 50%; }\n\n  100% {\n    background-position: 0% 50%; } }\n\n@-webkit-keyframes slideUp {\n  0% {\n    -webkit-transform: translateY(6.25rem);\n    transform: translateY(6.25rem); }\n\n  100% {\n    -webkit-transform: translateY(0);\n    transform: translateY(0); } }\n\n@keyframes slideUp {\n  0% {\n    -webkit-transform: translateY(6.25rem);\n    transform: translateY(6.25rem); }\n\n  100% {\n    -webkit-transform: translateY(0);\n    transform: translateY(0); } }\n\n.no-margin {\n  margin: 0px; }\n\n.landing-page .twitter-signin {\n  margin-top: 40px; }\n.landing-page .social-signin img {\n  -webkit-filter: invert(100%);\n  height: 45px;\n  position: absolute;\n  left: 10px; }\n\n.page {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-content: flex-start;\n  align-items: center;\n  -webkit-animation: slideUp 0.1s ease;\n  -moz-animation: slideUp 0.1s ease;\n  animation: slideUp 0.1s ease; }\n  .page .container {\n    width: 500px;\n    min-height: 450px;\n    padding-top: 0px;\n    position: relative; }\n    .page .container .page-title span {\n      vertical-align: top; }\n  .page .back-button {\n    padding-left: 0px;\n    margin-left: -8px;\n    margin-bottom: 0px; }\n    .page .back-button span {\n      vertical-align: top;\n      font-size: 17px; }\n\n.social-container {\n  position: relative; }\n\n.cell {\n  width: 25%;\n  float: left;\n  box-sizing: border-box;\n  padding: 7px; }\n\n@media (max-width: 600px) {\n  .cell {\n    width: 100%; }\n }\n\n@media (min-width: 800px) {\n  .cell {\n    width: 50%; }\n }\n\n@media (min-width: 1200px) {\n  .cell {\n    width: 33%; }\n }\n\n@media (min-width: 1600px) {\n  .cell {\n    width: 20%; }\n }\n\n.cell .media-item {\n  padding: 5px;\n  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.1);\n  background: white;\n  position: relative; }\n  .cell .media-item .info {\n    padding: 7px 10px;\n    width: 100%;\n    color: #3C4152;\n    text-transform: uppercase;\n    font-size: 14px;\n    line-height: 16px;\n    font-weight: 700;\n    letter-spacing: 2px;\n    box-sizing: border-box;\n    position: relative; }\n    .cell .media-item .info img.profile {\n      width: 50px;\n      height: 50px;\n      border-radius: 150px;\n      float: left;\n      margin-right: 15px;\n      border: 1px solid #cbcbcb; }\n    .cell .media-item .info .text {\n      word-wrap: break-word; }\n      .cell .media-item .info .text .user-name {\n        margin-bottom: 10px;\n        color: #4A6179; }\n      .cell .media-item .info .text .message {\n        color: #252525;\n        font-weight: 100;\n        min-height: 22px; }\n  .cell .media-item img, .cell .media-item video {\n    width: 100%;\n    display: block; }\n  .cell .media-item .instagram-icon {\n    background: url('/img/instagram.png');\n    position: absolute;\n    background-size: 64%;\n    background-repeat: no-repeat;\n    right: 10px;\n    top: 10px;\n    padding: 17px;\n    background-color: #FFFFFF;\n    border-radius: 180px;\n    background-position: center; }\n\n.configuration-page .container > div {\n  margin-bottom: 40px; }\n.configuration-page .connection-indicator {\n  position: absolute;\n  top: 15px;\n  right: 15px; }\n.configuration-page .signin-container {\n  text-align: center;\n  margin-bottom: 20px; }\n  .configuration-page .signin-container .social-icon {\n    -webkit-filter: invert(100%);\n    width: 30px;\n    height: 30px;\n    margin-right: 20px; }\n  .configuration-page .signin-container .signin-button {\n    font-size: 18px; }\n.configuration-page .config-group {\n  position: relative;\n  margin-bottom: 30px; }\n  .configuration-page .config-group .social-icon {\n    width: 28px;\n    height: 28px;\n    position: absolute;\n    top: -5px;\n    left: 6px; }\n  .configuration-page .config-group .tagged-input-wrapper {\n    padding: 2px 0px 5px 45px; }\n\n.board-page .board-id {\n  margin-bottom: 30px; }\n\n.tagged-input-wrapper {\n  padding: 2px 0px 5px 2px;\n  min-height: 26px;\n  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);\n  background-size: 0 2px, 100% 1px;\n  background-repeat: no-repeat;\n  background-position: center bottom, center calc(100% - 1px);\n  background-color: transparent; }\n\n.tagged-input-wrapper .tagged-input {\n  border: none;\n  outline: none;\n  font-size: 16px; }\n\n.tagged-input-wrapper .tag .tag-text {\n  padding-left: 5px; }\n\n.tagged-input-wrapper .tag {\n  display: inline-block;\n  background-color: #E9E9E9;\n  padding: 2px 0px 2px 2px;\n  margin-left: 2px;\n  margin-right: 2px;\n  border-radius: 5px;\n  margin-bottom: 2px; }\n\n.tagged-input-wrapper .tag.duplicate {\n  background: #FFDB7B; }\n\n.tagged-input-wrapper .tag .remove {\n  color: #000000;\n  padding: 0px 4px;\n  font-size: 75%;\n  line-height: 100%;\n  cursor: pointer; }\n\n.tagged-input-wrapper .tag .remove:hover {\n  color: #03a9f4; }\n\n.tagged-input-wrapper .tag .remove, .tagged-input-wrapper .tag .tag-text {\n  display: inline-block; }\n", ""]);
 
 /***/ },
 /* 11 */
@@ -12178,13 +12178,13 @@
 	var url = __webpack_require__(43);
 	var eio = __webpack_require__(110);
 	var Socket = __webpack_require__(45);
-	var Emitter = __webpack_require__(113);
+	var Emitter = __webpack_require__(111);
 	var parser = __webpack_require__(57);
 	var on = __webpack_require__(87);
-	var bind = __webpack_require__(111);
-	var object = __webpack_require__(112);
+	var bind = __webpack_require__(114);
+	var object = __webpack_require__(113);
 	var debug = __webpack_require__(61)('socket.io-client:manager');
-	var indexOf = __webpack_require__(114);
+	var indexOf = __webpack_require__(112);
 	var Backoff = __webpack_require__(115);
 
 	/**
@@ -12685,12 +12685,12 @@
 	 */
 
 	var parser = __webpack_require__(57);
-	var Emitter = __webpack_require__(113);
-	var toArray = __webpack_require__(116);
+	var Emitter = __webpack_require__(111);
+	var toArray = __webpack_require__(117);
 	var on = __webpack_require__(87);
-	var bind = __webpack_require__(111);
+	var bind = __webpack_require__(114);
 	var debug = __webpack_require__(61)('socket.io-client:socket');
-	var hasBin = __webpack_require__(117);
+	var hasBin = __webpack_require__(116);
 
 	/**
 	 * Module exports.
@@ -13089,7 +13089,7 @@
 	var debug = __webpack_require__(61)('socket.io-parser');
 	var json = __webpack_require__(177);
 	var isArray = __webpack_require__(167);
-	var Emitter = __webpack_require__(113);
+	var Emitter = __webpack_require__(111);
 	var binary = __webpack_require__(118);
 	var isBuf = __webpack_require__(119);
 
@@ -13741,129 +13741,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	module.exports =  __webpack_require__(210);
+	module.exports =  __webpack_require__(208);
 
 
 /***/ },
 /* 111 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Slice reference.
-	 */
-
-	var slice = [].slice;
-
-	/**
-	 * Bind `obj` to `fn`.
-	 *
-	 * @param {Object} obj
-	 * @param {Function|String} fn or string
-	 * @return {Function}
-	 * @api public
-	 */
-
-	module.exports = function(obj, fn){
-	  if ('string' == typeof fn) fn = obj[fn];
-	  if ('function' != typeof fn) throw new Error('bind() requires a function');
-	  var args = slice.call(arguments, 2);
-	  return function(){
-	    return fn.apply(obj, args.concat(slice.call(arguments)));
-	  }
-	};
-
-
-/***/ },
-/* 112 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	/**
-	 * HOP ref.
-	 */
-
-	var has = Object.prototype.hasOwnProperty;
-
-	/**
-	 * Return own keys in `obj`.
-	 *
-	 * @param {Object} obj
-	 * @return {Array}
-	 * @api public
-	 */
-
-	exports.keys = Object.keys || function(obj){
-	  var keys = [];
-	  for (var key in obj) {
-	    if (has.call(obj, key)) {
-	      keys.push(key);
-	    }
-	  }
-	  return keys;
-	};
-
-	/**
-	 * Return own values in `obj`.
-	 *
-	 * @param {Object} obj
-	 * @return {Array}
-	 * @api public
-	 */
-
-	exports.values = function(obj){
-	  var vals = [];
-	  for (var key in obj) {
-	    if (has.call(obj, key)) {
-	      vals.push(obj[key]);
-	    }
-	  }
-	  return vals;
-	};
-
-	/**
-	 * Merge `b` into `a`.
-	 *
-	 * @param {Object} a
-	 * @param {Object} b
-	 * @return {Object} a
-	 * @api public
-	 */
-
-	exports.merge = function(a, b){
-	  for (var key in b) {
-	    if (has.call(b, key)) {
-	      a[key] = b[key];
-	    }
-	  }
-	  return a;
-	};
-
-	/**
-	 * Return length of `obj`.
-	 *
-	 * @param {Object} obj
-	 * @return {Number}
-	 * @api public
-	 */
-
-	exports.length = function(obj){
-	  return exports.keys(obj).length;
-	};
-
-	/**
-	 * Check if `obj` is empty.
-	 *
-	 * @param {Object} obj
-	 * @return {Boolean}
-	 * @api public
-	 */
-
-	exports.isEmpty = function(obj){
-	  return 0 == exports.length(obj);
-	};
-
-/***/ },
-/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -14033,7 +13915,7 @@
 
 
 /***/ },
-/* 114 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -14046,6 +13928,124 @@
 	  }
 	  return -1;
 	};
+
+/***/ },
+/* 113 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * HOP ref.
+	 */
+
+	var has = Object.prototype.hasOwnProperty;
+
+	/**
+	 * Return own keys in `obj`.
+	 *
+	 * @param {Object} obj
+	 * @return {Array}
+	 * @api public
+	 */
+
+	exports.keys = Object.keys || function(obj){
+	  var keys = [];
+	  for (var key in obj) {
+	    if (has.call(obj, key)) {
+	      keys.push(key);
+	    }
+	  }
+	  return keys;
+	};
+
+	/**
+	 * Return own values in `obj`.
+	 *
+	 * @param {Object} obj
+	 * @return {Array}
+	 * @api public
+	 */
+
+	exports.values = function(obj){
+	  var vals = [];
+	  for (var key in obj) {
+	    if (has.call(obj, key)) {
+	      vals.push(obj[key]);
+	    }
+	  }
+	  return vals;
+	};
+
+	/**
+	 * Merge `b` into `a`.
+	 *
+	 * @param {Object} a
+	 * @param {Object} b
+	 * @return {Object} a
+	 * @api public
+	 */
+
+	exports.merge = function(a, b){
+	  for (var key in b) {
+	    if (has.call(b, key)) {
+	      a[key] = b[key];
+	    }
+	  }
+	  return a;
+	};
+
+	/**
+	 * Return length of `obj`.
+	 *
+	 * @param {Object} obj
+	 * @return {Number}
+	 * @api public
+	 */
+
+	exports.length = function(obj){
+	  return exports.keys(obj).length;
+	};
+
+	/**
+	 * Check if `obj` is empty.
+	 *
+	 * @param {Object} obj
+	 * @return {Boolean}
+	 * @api public
+	 */
+
+	exports.isEmpty = function(obj){
+	  return 0 == exports.length(obj);
+	};
+
+/***/ },
+/* 114 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Slice reference.
+	 */
+
+	var slice = [].slice;
+
+	/**
+	 * Bind `obj` to `fn`.
+	 *
+	 * @param {Object} obj
+	 * @param {Function|String} fn or string
+	 * @return {Function}
+	 * @api public
+	 */
+
+	module.exports = function(obj, fn){
+	  if ('string' == typeof fn) fn = obj[fn];
+	  if ('function' != typeof fn) throw new Error('bind() requires a function');
+	  var args = slice.call(arguments, 2);
+	  return function(){
+	    return fn.apply(obj, args.concat(slice.call(arguments)));
+	  }
+	};
+
 
 /***/ },
 /* 115 */
@@ -14142,25 +14142,6 @@
 /* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = toArray
-
-	function toArray(list, index) {
-	    var array = []
-
-	    index = index || 0
-
-	    for (var i = index || 0; i < list.length; i++) {
-	        array[i - index] = list[i]
-	    }
-
-	    return array
-	}
-
-
-/***/ },
-/* 117 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(global) {
 	/*
 	 * Module requirements.
@@ -14221,6 +14202,25 @@
 	}
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 117 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = toArray
+
+	function toArray(list, index) {
+	    var array = []
+
+	    index = index || 0
+
+	    for (var i = index || 0; i < list.length; i++) {
+	        array[i - index] = list[i]
+	    }
+
+	    return array
+	}
+
 
 /***/ },
 /* 118 */
@@ -14466,7 +14466,7 @@
 
 	  // Detect the `define` function exposed by asynchronous module loaders. The
 	  // strict `define` check is necessary for compatibility with `r.js`.
-	  var isLoader = "function" === "function" && __webpack_require__(220);
+	  var isLoader = "function" === "function" && __webpack_require__(218);
 
 	  // Detect native implementations.
 	  var nativeJSON = typeof JSON == "object" && JSON;
@@ -15353,9 +15353,7 @@
 /* 205 */,
 /* 206 */,
 /* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -15367,10 +15365,12 @@
 	 * @api public
 	 *
 	 */
-	module.exports.parser = __webpack_require__(222);
+	module.exports.parser = __webpack_require__(223);
 
 
 /***/ },
+/* 209 */,
+/* 210 */,
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -15386,9 +15386,7 @@
 /* 215 */,
 /* 216 */,
 /* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -15396,6 +15394,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
+/* 219 */,
+/* 220 */,
 /* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -15404,10 +15404,10 @@
 	 */
 
 	var transports = __webpack_require__(226);
-	var Emitter = __webpack_require__(113);
-	var debug = __webpack_require__(230)('engine.io-client:socket');
-	var index = __webpack_require__(114);
-	var parser = __webpack_require__(222);
+	var Emitter = __webpack_require__(111);
+	var debug = __webpack_require__(232)('engine.io-client:socket');
+	var index = __webpack_require__(112);
+	var parser = __webpack_require__(223);
 	var parseuri = __webpack_require__(227);
 	var parsejson = __webpack_require__(228);
 	var parseqs = __webpack_require__(229);
@@ -15527,7 +15527,7 @@
 	Socket.Socket = Socket;
 	Socket.Transport = __webpack_require__(225);
 	Socket.transports = __webpack_require__(226);
-	Socket.parser = __webpack_require__(222);
+	Socket.parser = __webpack_require__(223);
 
 	/**
 	 * Creates transport of the given type.
@@ -16108,7 +16108,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 222 */
+/* 222 */,
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -16116,11 +16117,11 @@
 	 */
 
 	var keys = __webpack_require__(233);
-	var hasBinary = __webpack_require__(239);
-	var sliceBuffer = __webpack_require__(240);
-	var base64encoder = __webpack_require__(243);
-	var after = __webpack_require__(238);
-	var utf8 = __webpack_require__(242);
+	var hasBinary = __webpack_require__(238);
+	var sliceBuffer = __webpack_require__(239);
+	var base64encoder = __webpack_require__(242);
+	var after = __webpack_require__(240);
+	var utf8 = __webpack_require__(243);
 
 	/**
 	 * Check if we are running an android browser. That requires us to use
@@ -16709,7 +16710,6 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 223 */,
 /* 224 */,
 /* 225 */
 /***/ function(module, exports, __webpack_require__) {
@@ -16718,8 +16718,8 @@
 	 * Module dependencies.
 	 */
 
-	var parser = __webpack_require__(222);
-	var Emitter = __webpack_require__(113);
+	var parser = __webpack_require__(223);
+	var Emitter = __webpack_require__(111);
 
 	/**
 	 * Module exports.
@@ -17062,7 +17062,9 @@
 
 
 /***/ },
-/* 230 */
+/* 230 */,
+/* 231 */,
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -17215,8 +17217,6 @@
 
 
 /***/ },
-/* 231 */,
-/* 232 */,
 /* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -17293,9 +17293,9 @@
 
 	var XMLHttpRequest = __webpack_require__(234);
 	var Polling = __webpack_require__(246);
-	var Emitter = __webpack_require__(113);
+	var Emitter = __webpack_require__(111);
 	var inherit = __webpack_require__(247);
-	var debug = __webpack_require__(230)('engine.io-client:polling-xhr');
+	var debug = __webpack_require__(232)('engine.io-client:polling-xhr');
 
 	/**
 	 * Module exports.
@@ -17923,10 +17923,10 @@
 	 */
 
 	var Transport = __webpack_require__(225);
-	var parser = __webpack_require__(222);
+	var parser = __webpack_require__(223);
 	var parseqs = __webpack_require__(229);
 	var inherit = __webpack_require__(247);
-	var debug = __webpack_require__(230)('engine.io-client:websocket');
+	var debug = __webpack_require__(232)('engine.io-client:websocket');
 
 	/**
 	 * `ws` exposes a WebSocket-compatible interface in
@@ -18162,40 +18162,6 @@
 /* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = after
-
-	function after(count, callback, err_cb) {
-	    var bail = false
-	    err_cb = err_cb || noop
-	    proxy.count = count
-
-	    return (count === 0) ? callback() : proxy
-
-	    function proxy(err, result) {
-	        if (proxy.count <= 0) {
-	            throw new Error('after called too many times')
-	        }
-	        --proxy.count
-
-	        // after first error, rest are passed to err_cb
-	        if (err) {
-	            bail = true
-	            callback(err)
-	            // future error callbacks will go to error handler
-	            callback = err_cb
-	        } else if (proxy.count === 0 && !bail) {
-	            callback(null, result)
-	        }
-	    }
-	}
-
-	function noop() {}
-
-
-/***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(global) {
 	/*
 	 * Module requirements.
@@ -18258,7 +18224,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 240 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18290,6 +18256,40 @@
 	  }
 	  return result.buffer;
 	};
+
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = after
+
+	function after(count, callback, err_cb) {
+	    var bail = false
+	    err_cb = err_cb || noop
+	    proxy.count = count
+
+	    return (count === 0) ? callback() : proxy
+
+	    function proxy(err, result) {
+	        if (proxy.count <= 0) {
+	            throw new Error('after called too many times')
+	        }
+	        --proxy.count
+
+	        // after first error, rest are passed to err_cb
+	        if (err) {
+	            bail = true
+	            callback(err)
+	            // future error callbacks will go to error handler
+	            callback = err_cb
+	        } else if (proxy.count === 0 && !bail) {
+	            callback(null, result)
+	        }
+	    }
+	}
+
+	function noop() {}
 
 
 /***/ },
@@ -18350,6 +18350,71 @@
 
 /***/ },
 /* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 * base64-arraybuffer
+	 * https://github.com/niklasvh/base64-arraybuffer
+	 *
+	 * Copyright (c) 2012 Niklas von Hertzen
+	 * Licensed under the MIT license.
+	 */
+	(function(chars){
+	  "use strict";
+
+	  exports.encode = function(arraybuffer) {
+	    var bytes = new Uint8Array(arraybuffer),
+	    i, len = bytes.length, base64 = "";
+
+	    for (i = 0; i < len; i+=3) {
+	      base64 += chars[bytes[i] >> 2];
+	      base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];
+	      base64 += chars[((bytes[i + 1] & 15) << 2) | (bytes[i + 2] >> 6)];
+	      base64 += chars[bytes[i + 2] & 63];
+	    }
+
+	    if ((len % 3) === 2) {
+	      base64 = base64.substring(0, base64.length - 1) + "=";
+	    } else if (len % 3 === 1) {
+	      base64 = base64.substring(0, base64.length - 2) + "==";
+	    }
+
+	    return base64;
+	  };
+
+	  exports.decode =  function(base64) {
+	    var bufferLength = base64.length * 0.75,
+	    len = base64.length, i, p = 0,
+	    encoded1, encoded2, encoded3, encoded4;
+
+	    if (base64[base64.length - 1] === "=") {
+	      bufferLength--;
+	      if (base64[base64.length - 2] === "=") {
+	        bufferLength--;
+	      }
+	    }
+
+	    var arraybuffer = new ArrayBuffer(bufferLength),
+	    bytes = new Uint8Array(arraybuffer);
+
+	    for (i = 0; i < len; i+=4) {
+	      encoded1 = chars.indexOf(base64[i]);
+	      encoded2 = chars.indexOf(base64[i+1]);
+	      encoded3 = chars.indexOf(base64[i+2]);
+	      encoded4 = chars.indexOf(base64[i+3]);
+
+	      bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);
+	      bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);
+	      bytes[p++] = ((encoded3 & 3) << 6) | (encoded4 & 63);
+	    }
+
+	    return arraybuffer;
+	  };
+	})("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
+
+
+/***/ },
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! http://mths.be/utf8js v2.0.0 by @mathias */
@@ -18590,72 +18655,7 @@
 
 	}(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(249)(module), (function() { return this; }())))
-
-/***/ },
-/* 243 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 * base64-arraybuffer
-	 * https://github.com/niklasvh/base64-arraybuffer
-	 *
-	 * Copyright (c) 2012 Niklas von Hertzen
-	 * Licensed under the MIT license.
-	 */
-	(function(chars){
-	  "use strict";
-
-	  exports.encode = function(arraybuffer) {
-	    var bytes = new Uint8Array(arraybuffer),
-	    i, len = bytes.length, base64 = "";
-
-	    for (i = 0; i < len; i+=3) {
-	      base64 += chars[bytes[i] >> 2];
-	      base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];
-	      base64 += chars[((bytes[i + 1] & 15) << 2) | (bytes[i + 2] >> 6)];
-	      base64 += chars[bytes[i + 2] & 63];
-	    }
-
-	    if ((len % 3) === 2) {
-	      base64 = base64.substring(0, base64.length - 1) + "=";
-	    } else if (len % 3 === 1) {
-	      base64 = base64.substring(0, base64.length - 2) + "==";
-	    }
-
-	    return base64;
-	  };
-
-	  exports.decode =  function(base64) {
-	    var bufferLength = base64.length * 0.75,
-	    len = base64.length, i, p = 0,
-	    encoded1, encoded2, encoded3, encoded4;
-
-	    if (base64[base64.length - 1] === "=") {
-	      bufferLength--;
-	      if (base64[base64.length - 2] === "=") {
-	        bufferLength--;
-	      }
-	    }
-
-	    var arraybuffer = new ArrayBuffer(bufferLength),
-	    bytes = new Uint8Array(arraybuffer);
-
-	    for (i = 0; i < len; i+=4) {
-	      encoded1 = chars.indexOf(base64[i]);
-	      encoded2 = chars.indexOf(base64[i+1]);
-	      encoded3 = chars.indexOf(base64[i+2]);
-	      encoded4 = chars.indexOf(base64[i+3]);
-
-	      bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);
-	      bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);
-	      bytes[p++] = ((encoded3 & 3) << 6) | (encoded4 & 63);
-	    }
-
-	    return arraybuffer;
-	  };
-	})("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
-
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(250)(module), (function() { return this; }())))
 
 /***/ },
 /* 244 */,
@@ -18871,9 +18871,9 @@
 
 	var Transport = __webpack_require__(225);
 	var parseqs = __webpack_require__(229);
-	var parser = __webpack_require__(222);
+	var parser = __webpack_require__(223);
 	var inherit = __webpack_require__(247);
-	var debug = __webpack_require__(230)('engine.io-client:polling');
+	var debug = __webpack_require__(232)('engine.io-client:polling');
 
 	/**
 	 * Module exports.
@@ -19154,7 +19154,8 @@
 
 
 /***/ },
-/* 249 */
+/* 249 */,
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function(module) {
@@ -19170,7 +19171,6 @@
 
 
 /***/ },
-/* 250 */,
 /* 251 */
 /***/ function(module, exports, __webpack_require__) {
 

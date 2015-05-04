@@ -2,18 +2,44 @@ var React = require('react/addons');
 window.React = React;
 var Page = require('../core/PageClass');
 var configurationAPI = require('../api/configurationAPI');
-var cx = require('classnames');
+var userApi = require('../api/userApi');
+var classnames = require('classnames');
 
-//classNames('foo', { bar: true, duck: false }, 'baz', { quux: true })
-//<label class="control-label" for="inputError">Input error</label>
 
 var LandingComponent = React.createClass({
 	getInitialState:function(){
+		var _this = this;
+		userApi.getCurrentUser(function(user){
+			console.log('user')
+			_this.user = user;
+			console.log(user);
+			_this.setState({
+				isLoading : false,
+				userLoggedIn : true
+			})
+		},function(err){
+			console.log(err);
+			if(err.status === 404) {
+				console.log('User not logged in');
+				_this.setState({
+					userLoggedIn : false,
+					isLoading : false
+				})
+			}
+		})
+
 		return {
-			isLoading : false,
+			isLoading : true,
 			createFailedMessage : '',
-			findFailedMessage : ''
+			findFailedMessage : '',
+			userLoggedIn : false
 		}
+	},
+	getUserName : function(){
+		if(this.user.instagram)
+			return this.user.instagram.profile.username;
+		else if(this.user.twitter)
+			return this.user.twitter.profile.screen_name;
 	},
 	onCreateBoard: function(){
 		var _this = this;
@@ -32,27 +58,14 @@ var LandingComponent = React.createClass({
 		)
 	},
 	onEnter:function(event){
-			if(event.keyCode === 13){
-				console.log("on enter")
-				this.onFindBoard();
-				event.preventDefault();
-			}
-	},
-	onFindBoard:function(){
-		var _this = this;
-		var boardID = this.refs.boardID.getDOMNode().value;
-		configurationAPI.getBoardConfigs(boardID, function (configs) {
-			//Board exists redirect to page
-			window.location.href = "#/board/" + boardID;
-		},function(){
-			//Board does not exists
-			_this.setState({
-				findFailedMessage : "Unable to find board: "
-			});
-		});
+		if(event.keyCode === 13){
+			console.log("on enter")
+			this.onFindBoard();
+			event.preventDefault();
+		}
 	},
 	render:function(){
-		var formClasses = cx('form-group', { 'has-success' : this.state.findFailedMessage.length == 0 },{ 'has-error' : this.state.findFailedMessage.length > 0 })
+		var formClasses = classnames('form-group', { 'has-success' : this.state.findFailedMessage.length == 0 },{ 'has-error' : this.state.findFailedMessage.length > 0 })
 
 		return (
 			<div className="landing-page page">
@@ -65,26 +78,29 @@ var LandingComponent = React.createClass({
 							</div>
 						: null
 					}
-
+					{
+						this.state.userLoggedIn ?
+							<h3>{"Hi "+this.getUserName()+"!"} </h3>
+						:
+							<h3>Sign In To Get Started</h3>
+					}
+					<hr/>
 					{
 						this.state.createFailedMessage.length > 0 ?
 							<h4 className="text-danger">{this.state.createFailedMessage}</h4>
-						:
+							:
 							null
 					}
-					<a href="javascript:void(0)" onClick={this.onCreateBoard} className="btn btn-info btn-block create-button">Create New Board</a>
-					<hr/>
-
-					<div className={formClasses}>
-						{
-							this.state.findFailedMessage.length > 0 ?
-								<label className="control-label" for="inputError">{this.state.findFailedMessage}</label>
-							: null
-						}
-
-						<input ref="boardID" className="form-control input-lg" type="text" placeholder="Board Id" onKeyUp={this.onEnter}/>
-					</div>
-					<a href="javascript:void(0)" onClick={this.onFindBoard} className="btn btn-success btn-block">Find Board</a>
+					{
+						this.state.userLoggedIn?
+							<a href="javascript:void(0)" onClick={this.onCreateBoard} className="btn btn-info btn-block create-button">Create New Board</a>
+						:
+							<div>
+								<a href="/auth/instagram?callbackURL=/#/" onClick={this.signInWithInstagram} className="btn btn-primary btn-block social-signin twitter-signin"><img src="/img/instagram.png"/> Instagram</a>
+								<a href="/auth/twitter?callbackURL=/#/" onClick={this.signInWithTwitter} className="btn btn-info btn-block social-signin"><img src="/img/twitter.png"/> Twitter</a>
+								<a href="#" onClick={this.signInWithFacebook} className="btn btn-warning btn-block social-signin"><img src="/img/facebook.png"/> Facebook (Under construction)</a>
+							</div>
+					}
 				</div>
 			</div>
 		);
